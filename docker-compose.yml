@@ -1,0 +1,6 @@
+services:
+  miner-mike:
+    build:
+      context: .
+      network: host
+    command: sh -cx "node hello.js"
