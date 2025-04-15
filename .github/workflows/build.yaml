@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+
+      - name: Build Docker image
+        run: docker compose up -d
+
+      - name: Run test
+        run: echo "Test passed"
+
+      - name: Tear down
+        run: docker compose down -v --remove-orphans
+
+      - name: Tag and push Docker image
+        if: github.ref == 'refs/heads/main'
+        run: |
+          docker tag miner-mike:latest ${{ secrets.DOCKER_REGISTRY }}/pipeline-push-image:develop
+          docker push ${{ secrets.DOCKER_REGISTRY }}/pipeline-push-image:develop

@@ -1,5 +1,6 @@
 services:
   miner-mike:
+    image: miner-mike
     build:
       context: .
       network: host
