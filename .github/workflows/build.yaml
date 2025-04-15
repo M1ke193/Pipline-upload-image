@@ -30,5 +30,5 @@ jobs:
       - name: Tag and push Docker image
         if: github.ref == 'refs/heads/main'
         run: |
-          docker tag miner-mike:latest ${{ secrets.DOCKER_REGISTRY }}/pipeline-push-image:develop
-          docker push ${{ secrets.DOCKER_REGISTRY }}/pipeline-push-image:develop
+          docker tag miner-mike:latest ${{ secrets.DOCKER_REGISTRY }}/pipeline-push-image:nopush
+          docker push ${{ secrets.DOCKER_REGISTRY }}/pipeline-push-image:nopush

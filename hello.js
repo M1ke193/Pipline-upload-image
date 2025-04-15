@@ -1,3 +1,3 @@
 setInterval(()=>{
-    console.log('No escape :(')
+    console.log('should not push on registry')
 }, 2000);
